@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    /*El fondo de la pagina es una imagen*/
+    background: #000 url(../img/fondo.jpg);
+    /*El fondo se queda quieto ante un scroll del usuario*/
+    background-attachment: fixed;
+    /*Para que se ajuste al tamaño de la pagina*/
+    background-size: cover;  
+}
+
+/*---------------------------------------------------------------------*/
+
+.contenedor-pagina {
+    /*Centrado del contenedor*/
+    margin: auto;
+    /*Establezco el ancho del div con respecto a la pagina*/
+    width: 90%;
+    /*Asegura que en pantallas grandes el ancho va a ser de 1000px*/
+    max-width: 1000px;
+
+    /*Habilito flexbox, donde ahora los elementos hijos son "flexibles(especie de float)"*/
+    display: flex;
+    /*Posicionar los contenedores hijos, tengo una fila de elmentos, se posicionan uno al lado del otro*/
+    flex-direction: row;
+    /*Para que se respete las propiedades de los hijos(todas las partes de la pagina) si no entran en el ancho o alto de la caja padre*/
+    flex-wrap: wrap;
+}
+
+/*---------------------------------------------------------------------*/
+
+header {
+    width: 100%;
+    /*Margen interno entre el texto y el recuadro, el primer valor indica arriba y abajo*/
+    padding: 30px 0;
+
+    /*Habilito flexbox, donde ahora los elementos hijos son "flexibles(float)"*/
+    display: flex;
+    /*Posiciono los contenedores hijos uno al lado del otro*/
+    flex-direction: row;
+    /*Posiciona los hijos de manera que dejen un espacio iguales en medio de manera DINAMICA(se ajusta si la pantalla de achica hasta cierto punto), 
+    en este caso como hay dos solo los pone en las esquinas*/
+    justify-content: space-between;
+    /*Centrar los contendedores hijos de manera vertical si tengo una sola linea de elementos*/
+    align-items: center;
+}
+
+header .menu a {
+    color: #fff;
+    font-size: 18px;
+    /*Quito el subrayado*/
+    text-decoration: none;
+    /*Margen externo con respecto a los otros elementos HTML*/
+    margin-right: 40px;   
+}
+
+header .menu a:hover {
+   /*El texto queda subrayado*/
+   text-decoration: underline;  
+}
+
+/*---------------------------------------------------------------------*/
+
+.main {
+    background: #fff;
+    /*Margen interno*/
+    padding: 20px;
+    /*Dejo espacio para el sidebar*/
+    width: 70%;
+}
+
+/*Estilos al contenedor de la imagen del main*/
+.main article .thumb {
+    /*Margen externo hacia abajo*/
+    margin-bottom: 20px;
+}
+
+/*Estilos a la imagen del main*/
+.main article .thumb img {
+    /*Que abarque el 100% de su contenedor thumb*/
+    width: 100%;
+    /*Eliminar margenes de la imagen*/
+    vertical-align: top;
+}
+
+.main article h2 {
+    margin-bottom: 20px;
+    /*Sacarle el bold o negrita*/
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.main article p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 27px;
+}
+
+/*---------------------------------------------------------------------*/
+
+aside {
+    /*Colocamos ese ancho ya que comparte espacio con el main*/
+    /*Para que se coloque al lado del main, el padre tiene que tener activada flexbox,
+    el contenedor padre es contenedor-pagina de main y sidebar*/
+    width: 30%;
+    background-color: #537dca;
+    /*Margen interno*/
+    padding: 20px;
+
+    /*Posiciono cada una de las publicidades o contenedores hijos*/
+    display: flex;
+    /*Tengo una columna de elementos, se posicinan una abajo del otro*/
+    flex-direction: column;
+    /*Posiciona los hijos de manera que dejen un espacio iguales en medio de manera DINAMICA(se ajusta si la pantalla de achica hasta cierto punto), 
+    en este caso como hay dos solo y tiene column se pone una arriba de todo y otro abajo de todo*/
+    justify-content: space-between;
+}
+
+aside .publicidad {
+    font-size: 30px;
+    /*Alinear el texto*/
+    text-align: center;
+    color: #fff;
+    padding: 50px 0;
+    background: #4264a2;
+    /*Margen externo*/
+    margin: 20px 0;
+}
+
+/*---------------------------------------------------------------------*/
+
+footer {
+    color: #fff;
+    width: 100%;
+    /*Margen externo con los otros elementos HTML hacia arriba y abajo*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*Fondo con transparencia*/
+    background: rgba(255,255,255,.2);
+    /*Margen externo entre el texto y la caja*/
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    /*Para cuando se achique la pantalla, los hijos no se pongan uno abajo del otro*/
+    flex-wrap: nowrap;
+    /*Coloco los hijos con un espacio igual en el medio*/
+    justify-content: space-between;
+}
+
+footer .redes-sociales a {
+    color: #fff;
+    text-decoration: underline;
+    /*Margen externo entre cada enlace*/
+    margin-left: 20px;
+}
+
+footer .redes-sociales a:hover {
+    /*Al pasarle el maus le quita el subrayado*/
+    text-decoration: none;
+}
+
+
+/*-----------------------------------------------------------------------------*/
+
+/*DISEÑO RESPONSIVE*/
+
+/*EL ANCHO DE LOS PIXELES DEPENDE CUANDO TU PAGINA SE VEA APRETADO, REALIZAMOS ESTOS CAMBIOS:*/
+
+@media screen and (max-width: 800px) {
+
+    /*Para que el main y el aside ya no compartan pantalla y se posiciones uno abajo del otro
+    solo modifico el width y lo coloco al 100%*/
+    .main {
+        width: 100%;
+    }
+
+    aside {
+        width: 100%;
+        /*Cambio de colum a row*/
+        flex-direction: row;
+    }
+
+    aside .publicidad {
+        /*Mejora visual de los elementos hijos del aside*/
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+
+    header {
+        /*Cambio de row a colum para que el menu este abajo y el icono arriba*/
+        flex-direction: column;
+        /*Reduzco el espacio de abajo de 50px a 20px*/
+        padding-bottom: 20px;
+    }
+
+    header .menu {
+        /*Aseguramos que los elementos hijos del header esten separados*/
+        width: 100%;
+        background: rgba(255,255,255,.2);
+        text-align: center;
+        /*Margen interno entre el texto y el recuadro*/
+        padding: 20px;
+
+    }
+    
+    header .menu a {
+        /*Quitamos los margenes que ya ahora el menu esta solo*/
+        margin: 0 20px;
+    }
+
+    header .logo {
+        margin-bottom: 20px; 
+    }
+
+    footer {
+        /*Cambiamos de row a colum*/
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .autor {
+        order: 2;
+    }
+
+    footer .redes-sociales {
+        order: 1;
+        margin-bottom: 20px;
+    }
+}
+
+
+/*Para pantallas mucho mas pequeñas quito la publcidad*/
+@media screen and (max-width: 400px) {
+
+    aside {
+        /*Oculto el elemento HTML*/
+        display: none;
+    }
+}
+

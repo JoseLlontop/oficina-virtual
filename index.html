@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--Fuente de letras de Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <!--Sirve para adaptar la pagina al tamaño de la pantalla del dispositivo-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/estilos.css">
+    <link rel="shortcut icon" href="img/icons8-oficina.png" type="image/x-icon">
+    <title>Página Web</title>
+</head>
+
+<body>
+    
+    <div class="contenedor-pagina">
+
+        <!--ElEMENTO PADRE EN FLEXBOX QUE CONTIENE DOS ELEMENTOS HIJOS-->
+        <header> <!--ENCABEZADO DE LA PAGINA-->
+
+            <div class="logo">
+                <img src="img/logo-horizontal.jpg" alt="">
+            </div>
+
+            <nav class="menu"> <!--Menu de navegacion (en flexbox no es necesario usar listas)-->
+                <!--Enlaces-->
+                <a href="#">Inicio</a>
+                <a href="#">Blog</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </header>
+
+        <section class="main"> <!--SECCION O CONTENIDO PRINCIPAL-->
+
+            <article>
+
+                <!--Imagen del articulo-->
+                <div class="thumb">
+                    <img src="img/imagen1.png" alt="">
+                </div>
+
+                <h2>Titulo del articulo</h2>
+
+                <p>Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. 
+                También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que, aunque no tienen 
+                sentido para cualquier persona, sí puede ser descifrado por su destinatario original.</p>
+                
+                <p>Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de sentido. 
+                También es una composición de caracteres imprimibles generados por un algoritmo de cifrado que, aunque no tienen 
+                sentido para cualquier persona, sí puede ser descifrado por su destinatario original.</p>
+            </article>
+
+        </section>
+
+        <aside> <!--Lo utilizacion NO como barra lateral sino para colocar PUBLICIDAD-->
+
+            <div class="publicidad">
+                <p>AD</p>
+            </div>
+
+            <div class="publicidad">
+                <p>AD</p>
+            </div>
+
+        </aside>
+
+        <footer> <!--PIE DE PAGINA-->
+
+            <div class="autor">
+                <p>José Llontop 2024 - Todos los Derechos Reservados</p>
+            </div>
+
+            <div class="redes-sociales">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+            
+        </footer>
+
+    </div>
+
+</body>
+</html>
